@@ -15,6 +15,8 @@ Developer has written the `docker-compose.yaml` file for Nginx but it needs to b
    4. Does not required to trust with rootCA
 3. Other parameter in Nginx configuration to make it works as well.
 
+   - Now, I can docker-compose up by using nginx+SSL. But acually my certificate are just run on localhost(self-signed)
+
 ## Special Requirement(Optional)
 
 1. Team requires nginx to be possible to change config without update default.conf file. They request to parse parameter from `Global Environment`. So you have to create template config to be used instead of default.conf
