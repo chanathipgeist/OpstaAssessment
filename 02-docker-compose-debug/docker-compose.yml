@@ -3,12 +3,14 @@ services:
 
   app:
     build: ./app
+    depends_on:
+      - db
     environment: 
-      MYSQL_USER: root
-      MYSQL_PASSWORD: opsta
-      MYSQL_HOST: 'db'
-      MYSQL_PORT: '3306'
-      MYSQL_DATABASE: knights
+      CONFIG_DB_USER: root
+      CONFIG_DB_PASS: opsta
+      CONFIG_DB_HOST: 'db'
+      CONFIG_DB_PORT: '3306'
+      CONFIG_DB_NAME: knights
     ports:
       - "5000:5000"
 
