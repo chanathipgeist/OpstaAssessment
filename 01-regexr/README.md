@@ -23,3 +23,7 @@ Please provide script to convert **access log** in file `exam.log` to the format
 
 1. Script convert logs to **json**. Can be any programming language such as bash, python, golang or etc.
 2. Regular Expression to filter logs in the file.
+    
+I created at convert_to_bash.sh
+To run file:
+    bash convert_to_bash.sh
