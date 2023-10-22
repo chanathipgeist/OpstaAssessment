@@ -17,7 +17,7 @@ There are 6 files in this exam.
 
 - [x] hello-1.js (provided)
 - [x] hello-2.js (provided)
-- [ ] dockerfile of hello-1.js
-- [ ] dockerfile of hello-2.js
-- [ ] docker-compose.yaml
-- [ ] nginx.conf
+- [x] dockerfile of hello-1.js
+- [x] dockerfile of hello-2.js
+- [x] docker-compose.yaml
+- [x] nginx.conf
