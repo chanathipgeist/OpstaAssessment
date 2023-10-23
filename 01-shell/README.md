@@ -13,3 +13,7 @@ There are **Error** logs found in logs folder. Please provide the script to chec
 
 1. Script works as requirements from operation team. Can be written in any programming language
 2. Usage Manual to run script written for operation team (markdown, txt, doc, etc. and put it in folder `01-shell`)
+    - If you want to move lab
+        Please run `./move-lab.sh`
+    - If you want to check Error in Speial requirement 
+        Please run `./check-err.sh `
