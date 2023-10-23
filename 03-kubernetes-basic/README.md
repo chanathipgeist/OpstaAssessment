@@ -27,3 +27,7 @@ You can follow up step to create mini cluster of Kubernetes in docker engine on 
 terraform init
 terraform apply [-auto-approve]
 ```
+
+##My command
+kubectl apply -f deployment.yaml -f service.yaml -f namespace.yaml
+kubectl port-forward pod/httpd-deployment-6f958cf995-2flzw 8080:80 to forward port cause my port are not allow.
