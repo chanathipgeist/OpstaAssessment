@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+    ports:
+      - "8080:8080"
+
+      
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+    ports:
+      - "9000:9000"
+      
+  db:
+    image: sqlite:latest
+    restart: always
+    networks:
+      - my-net
+    volumes:
+      - ./backend/db:/path/to/your
+    
+networks:
+   my-net:
