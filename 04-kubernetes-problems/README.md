@@ -9,8 +9,8 @@ Frontend -> Backend -> MySQL
 
 ## Summary Requirement
 
-- [ ] Frontend must connect to backend API.
-- [ ] Backend must connect to database service.
+- [x] Frontend must connect to backend API.
+- [x] Backend must connect to database service.
 - [ ] Frontend and backend pods must spawn in node `worker3`. You can test with command to delete them for re-balancing pods resources.
 - [ ] Please explain your solution in `solution/SOLUTION.md`
 
@@ -18,5 +18,5 @@ Frontend -> Backend -> MySQL
 
 ```bash
 terraform init
-terraform apply [-auto-approve]
+terraform apply -auto-approve
 ```

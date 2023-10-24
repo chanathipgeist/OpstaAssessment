@@ -45,6 +45,11 @@ resource "kubernetes_deployment" "frontend" {
           port {
             container_port = 80
           }
+
+          env {
+            name  = "BACKEND_API_URL"
+            value = "http://backend:30951" 
+          }
         }
       }
     }

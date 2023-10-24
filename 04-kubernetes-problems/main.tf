@@ -20,6 +20,7 @@ module "kind_cluster" {
         listen_address = null
         protocol       = null
       }
+      taints = null  # ลบ Taint 
     },
     {
       role                   = "worker"
@@ -30,6 +31,7 @@ module "kind_cluster" {
         listen_address = null
         protocol       = null
       }
+      taints = null  # ลบ Taint 
     },
     {
       role = "worker"
@@ -42,6 +44,13 @@ module "kind_cluster" {
         EOF
       ]
       extra_port_mappings = null
+      taints = [  # เพิ่ม Taint จะได้มาสร้างแค่ worker นี้
+        {
+          key    = "node-role.kubernetes.io/database"
+          value  = "NoSchedule"
+          effect = "NoSchedule"
+        }
+      ]
     }
   ]
 }

@@ -45,6 +45,26 @@ resource "kubernetes_deployment" "backend" {
           port {
             container_port = 3000
           }
+          env {
+            name  = "DB_HOST"
+            value = "mysql" 
+          }
+          env {
+            name  = "DB_PORT"
+            value = "3307" 
+          }
+          env {
+            name  = "DB_USER"
+            value = "root" 
+          }
+          env {
+            name  = "DB_PASSWORD"
+            value = "password" 
+          }
+          env {
+            name  = "DB_NAME"
+            value = "app" 
+          }
         }
       }
     }
