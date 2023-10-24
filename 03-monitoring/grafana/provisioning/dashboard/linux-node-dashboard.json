@@ -1,0 +1,21 @@
+{
+    "dashboard": {
+      "id": null,
+      "uid": "linux-node-dashboard",
+      "title": "Linux Node Dashboard",
+      "tags": ["node", "linux"],
+      "timezone": "browser",
+      "schemaVersion": 16,
+      "version": 0,
+      "refresh": "5s",
+      "links": [],
+      "time": {
+        "from": "now-1h",
+        "to": "now"
+      },
+      "editable": true,
+    },
+    "folderId": 0,
+    "overwrite": false
+  }
+  

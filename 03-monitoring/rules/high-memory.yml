@@ -1,0 +1,11 @@
+groups:
+- name: high-memory
+  rules:
+  - alert: HighMemoryUsage
+    expr: (1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100 > 80
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "High Memory usage detected"
+      description: "Instance {{ $labels.instance }} has high memory usage"
