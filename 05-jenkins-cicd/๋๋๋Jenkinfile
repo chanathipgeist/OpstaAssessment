@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Unit Test') {
+            steps {
+                script {
+                    // Execute unit tests and generate a report
+                    sh 'npm install'
+                    sh 'npm test -- --reporter junit --reporters=default'
+                    step([$class: 'JUnitResultArchiver', testResults: '**/test-results.xml'])
+                }
+            }
+        }
+
+        stage('OWASP Check') {
+            steps {
+                script {
+                    // Execute OWASP dependency check and generate a report
+                    sh 'npm install -g snyk'
+                    sh 'snyk test --json > snyk_report.json'
+                    archiveArtifacts artifacts: 'snyk_report.json'
+                }
+            }
+        }
+
+        stage('Build and Push Docker Image') {
+            steps {
+                script {
+                    // Build Docker image from Dockerfile
+                    sh 'docker build -t your-docker-registry/your-image-name:latest .'
+                    
+                    // Push Docker image to your Docker registry
+                    sh 'docker push your-docker-registry/your-image-name:latest'
+                }
+            }
+        }
+
+        stage('Deploy to Kind K8s') {
+            steps {
+                script {
+                    // Deploy to Kind K8s using kubectl or helm
+                    sh 'kubectl apply -f your-manifest-file.yaml'
+                    // or
+                    sh 'helm install your-helm-chart'
+                }
+            }
+        }
+    }
+}
