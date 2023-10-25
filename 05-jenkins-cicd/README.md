@@ -25,3 +25,9 @@ cd ./kind
 terraform init
 terraform apply [-auto-approve]
 ```
+
+
+---------------------------------------------------
+Sorry, I try my best with Jenkins-cicd. I had never play this tools it's new for me I will continous develop myself TT.
+Best regards.
+Chanathip Buppanhasamai
