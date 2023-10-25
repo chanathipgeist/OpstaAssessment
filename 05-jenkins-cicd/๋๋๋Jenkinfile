@@ -27,8 +27,6 @@ pipeline {
                 script {
                     def imageName = "Opsta:latest"
                     sh "docker build -t ${imageName} ."
-
-                    // Push Docker image to your Docker registry
                     sh "docker push ${imageName}"
                 }
             }
@@ -37,9 +35,7 @@ pipeline {
         stage('Deploy to Kind K8s') {
             steps {
                 script {
-                    // Deploy to Kind K8s using kubectl or helm
                     sh 'kubectl apply -f your-manifest-file.yaml'
-                    // or
                     sh 'helm install your-helm-chart'
                 }
             }
