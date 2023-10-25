@@ -5,7 +5,6 @@ pipeline {
         stage('Unit Test') {
             steps {
                 script {
-                    // Execute unit tests and generate a report
                     sh 'npm install'
                     sh 'npm test -- --reporter junit --reporters=default'
                     step([$class: 'JUnitResultArchiver', testResults: '**/test-results.xml'])
@@ -16,7 +15,6 @@ pipeline {
         stage('OWASP Check') {
             steps {
                 script {
-                    // Execute OWASP dependency check and generate a report
                     sh 'npm install -g snyk'
                     sh 'snyk test --json > snyk_report.json'
                     archiveArtifacts artifacts: 'snyk_report.json'
@@ -24,14 +22,14 @@ pipeline {
             }
         }
 
-        stage('Build and Push Docker Image') {
+        stage('Build Docker Image') {
             steps {
                 script {
-                    // Build Docker image from Dockerfile
-                    sh 'docker build -t your-docker-registry/your-image-name:latest .'
-                    
+                    def imageName = "Opsta:latest"
+                    sh "docker build -t ${imageName} ."
+
                     // Push Docker image to your Docker registry
-                    sh 'docker push your-docker-registry/your-image-name:latest'
+                    sh "docker push ${imageName}"
                 }
             }
         }
